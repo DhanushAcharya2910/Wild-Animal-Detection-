@@ -1,0 +1,44 @@
+{% extends 'user/userNavigation.html' %}
+{% block content %}
+{% load static %}
+
+
+<body style="background-image: url({% static "images/2.jpg" %});background-repeat: no-repeat;background-size: cover;">
+
+    <div class="container my-5">
+        <div class="card hoverable p-4" style="border-radius: 35px;">
+            <div class="d-flex justify-content-center">
+                <span class="badge badge-primary w-50">
+                    <h1>RESULT</h1>
+                </span>
+            </div>
+            <div class="card-body text-center">
+                <!-- <div class="col-md-6" style="margin-left: 43%;"> -->
+                    <h3 style="font-weight: bold; color: red;">{{result}}</h3>
+                <!-- </div> -->
+            </div><br><br>
+            <div class="card-body text-center">
+                <!-- <div class="col-md-6" style="margin-left: 43%;"> -->
+                    <img src="../../media/test.png" height="150" width="150"/>
+                <!-- </div> -->
+            </div><br><br>
+        </div>
+        <form>
+        <div class="row text-center" style="margin-left: 460px;">
+            <button class="btn btn-large btn-warning mt-5" formaction="/testagain/" 
+            style="font-size: large;">
+                Check another result</button>
+        </div>
+    </form>
+    </div>
+    <script>
+        // Check if the result is 1
+        {% if res == 1 %}
+            // Play sound when result is 1
+            var audio = new Audio("{% static 'images/danger.mp3' %}");
+            audio.play();
+        {% endif %}
+    </script>
+</body>
+
+{% endblock %}
